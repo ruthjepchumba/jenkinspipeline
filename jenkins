@@ -1,0 +1,80 @@
+pipeline {
+    agent any
+
+    stages {
+        stage("Build") {
+            steps {
+                echo "Building...."   
+            }
+            post {
+                success {
+                    mail to: "rjepchumba078@gmail.com",
+                    subject: "Build Status Email",
+                    body: "Build was successful"
+                }
+            }
+        }
+         stage("Test") {
+            steps {
+                echo "Testing...."
+            }
+            post {
+                success {
+                    mail to: "rjepchumba078@gmail.com",
+                    subject: "Test Status Email",
+                    body: "Tests were successful"
+                }
+            }
+        }
+         stage("Check code quality") {
+            steps {
+                echo "checking...."
+    
+            }
+            post {
+                success {
+                    mail to: "rjepchumba078@gmail.com",
+                    subject: "check Status Email",
+                    body: "check were successful"
+                }
+            }
+        }
+        stage("Deploy") {
+            steps {
+                echo "Deploying...."
+            }
+            post {
+                success {
+                    mail to: "rjepchumba078@gmail.com",
+                    subject: "Deployment Status Email",
+                    body: "Deployment was successful"
+                }
+            }
+        }
+         stage("Approval") {
+            steps {
+                echo "approving...."
+            }
+            post {
+                success {
+                    mail to: "rjepchumba078@gmail.com",
+                    subject: "approval Status Email",
+                    body: "approving was successful"
+                }
+            }
+        }
+         stage("deploy for production") {
+            steps {
+                echo "deploying...."
+
+            }
+            post {
+                success {
+                    mail to: "rjepchumba078@gmail.com",
+                    subject: "deployment Status Email",
+                    body: "deployed for production was successful"
+                }
+            }
+        }
+    }
+}
